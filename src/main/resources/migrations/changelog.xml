@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="1" author="feeko256">
+        <createTable tableName="wallets">
+            <column name="uuid" type="UUID">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="amount" type="BIGINT" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <insert tableName="wallets">
+            <column name="uuid" value="550e8400-e29b-41d4-a716-446655440000"/>
+            <column name="amount" valueNumeric="1000"/>
+        </insert>
+        <insert tableName="wallets">
+            <column name="uuid" value="a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11"/>
+            <column name="amount" valueNumeric="500"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
