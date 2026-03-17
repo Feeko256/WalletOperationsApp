@@ -13,9 +13,15 @@ public class WalletEntity {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID uuid;
     private long amount;
+    @Version
+    private Long version;
 
     public void deposit(long amount) {
         this.amount += amount;
+    }
+
+    public boolean checkAmount(long amount) {
+        return this.amount >= amount;
     }
 
     public void withdraw(long amount) {

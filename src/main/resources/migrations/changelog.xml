@@ -13,15 +13,20 @@
             <column name="amount" type="BIGINT" defaultValueNumeric="0">
                 <constraints nullable="false"/>
             </column>
+            <column name="version" type="BIGINT" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
 
         <insert tableName="wallets">
             <column name="uuid" value="550e8400-e29b-41d4-a716-446655440000"/>
             <column name="amount" valueNumeric="1000"/>
+            <column name="version" valueNumeric="0"/>
         </insert>
         <insert tableName="wallets">
             <column name="uuid" value="a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11"/>
             <column name="amount" valueNumeric="500"/>
+            <column name="version" valueNumeric="0"/>
         </insert>
     </changeSet>
 </databaseChangeLog>
