@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 
 
 class WalletPositiveTests extends BaseTest {
-
     private static Response response;
 
     @BeforeEach

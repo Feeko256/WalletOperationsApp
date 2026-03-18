@@ -28,6 +28,9 @@ public class WalletService {
     )
     @Transactional
     public WalletEntity updateWallet(WalletDto dto) {
+        if(dto.getAmount() < 0)
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Сумма не может быть отрицательной");
+
         WalletEntity wallet = getWalletByUUID(dto.getUuid());
 
         if (dto.getOperationType().equals(OperationType.DEPOSIT)) {
