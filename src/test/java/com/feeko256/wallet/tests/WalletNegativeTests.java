@@ -30,4 +30,13 @@ public class WalletNegativeTests extends BaseTest {
         response = WalletSteps.updateWalletByUuid(TEST_UUID_LOW_BALANCE, TEST_AMOUNT, OperationType.WITHDRAW);
         Assertions.assertEquals(400, response.getStatusCode());
     }
+
+    @Test
+    void updateWalletValidationTest() {
+        response = WalletSteps.updateWalletByUuid(TEST_UUID_LOW_BALANCE, TEST_ERROR_AMOUNT, OperationType.DEPOSIT);
+        Assertions.assertEquals(400, response.getStatusCode());
+
+        response = WalletSteps.updateWalletByUuid(TEST_UUID_LOW_BALANCE, TEST_ERROR_AMOUNT, OperationType.WITHDRAW);
+        Assertions.assertEquals(400, response.getStatusCode());
+    }
 }

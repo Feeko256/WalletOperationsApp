@@ -32,14 +32,15 @@ public class WalletSteps extends WalletApi {
 
         WalletResponseDto walletResponseDto = getWalletByUuid(uuid).as(WalletResponseDto.class);
         long currentAmount = walletResponseDto.getAmount();
-        if (currentAmount < 0) {
+        if (currentAmount < amount) {
             walletPostDto.setAmount(amount - currentAmount);
             walletPostDto.setOperationType(OperationType.DEPOSIT);
-        } else {
+            return updateWallet(walletPostDto);
+        } else if (currentAmount > amount) {
             walletPostDto.setAmount(currentAmount - amount);
             walletPostDto.setOperationType(OperationType.WITHDRAW);
-
-        }
-        return updateWallet(walletPostDto);
+            return updateWallet(walletPostDto);
+        } else
+            return getByUuid(uuid);
     }
 }

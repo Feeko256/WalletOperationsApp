@@ -4,19 +4,9 @@ import io.restassured.http.Method;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
-import java.util.UUID;
-
 import static io.restassured.RestAssured.given;
 
 public class BaseApi {
-    protected static Response GET(RequestSpecification specification, String endpoint) {
-        return given().
-                spec(specification).
-                when().
-                request(Method.GET, endpoint).
-                then().log().all().extract().response();
-    }
-
     protected static Response GET(RequestSpecification specification, String endpoint, String path, Object param) {
         return given().
                 spec(specification).
