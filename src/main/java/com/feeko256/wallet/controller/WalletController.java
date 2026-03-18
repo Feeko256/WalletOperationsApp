@@ -6,7 +6,6 @@ import com.feeko256.wallet.services.WalletService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -14,11 +13,6 @@ import java.util.UUID;
 public class WalletController {
     @Autowired
     private WalletService walletService;
-
-    @GetMapping("/wallets")
-    public List<WalletEntity> getAllWallets() {
-        return walletService.getAllWallets();
-    }
 
     @GetMapping("/wallet/{uuid}")
     public WalletEntity getWalletByUuid(@PathVariable UUID uuid) {

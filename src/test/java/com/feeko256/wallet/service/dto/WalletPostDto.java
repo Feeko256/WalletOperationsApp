@@ -1,6 +1,7 @@
 package com.feeko256.wallet.service.dto;
 
-import com.feeko256.wallet.enums.OperationType;
+
+import com.feeko256.wallet.service.enums.OperationType;
 import lombok.Data;
 
 import java.util.UUID;

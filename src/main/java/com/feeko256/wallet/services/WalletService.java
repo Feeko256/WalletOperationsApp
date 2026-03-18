@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -45,9 +44,5 @@ public class WalletService {
 
     public WalletEntity getWalletByUUID(UUID uuid) {
         return walletRepository.findById(uuid).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Кошелек не найден"));
-    }
-
-    public List<WalletEntity> getAllWallets() {
-        return walletRepository.findAll();
     }
 }
